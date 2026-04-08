@@ -1,52 +1,34 @@
-import { createReadableStreamFromReadable } from "@react-router/node";
-import { PassThrough } from "node:stream";
-import { renderToPipeableStream } from "react-dom/server";
+import { isbot } from "isbot";
+import { renderToReadableStream } from "react-dom/server.browser";
 import type { AppLoadContext, EntryContext } from "react-router";
 import { ServerRouter } from "react-router";
-import { isbot } from "isbot";
 
-export default function handleRequest(
+export default async function handleRequest(
   request: Request,
   responseStatusCode: number,
   responseHeaders: Headers,
   routerContext: EntryContext,
   _loadContext: AppLoadContext
 ) {
-  return new Promise((resolve, reject) => {
-    let shellRendered = false;
-    const userAgent = request.headers.get("user-agent");
+  const stream = await renderToReadableStream(
+    <ServerRouter context={routerContext} url={request.url} />,
+    {
+      signal: request.signal,
+      onError(error: unknown) {
+        responseStatusCode = 500;
+        console.error(error);
+      },
+    }
+  );
 
-    const { pipe, abort } = renderToPipeableStream(
-      <ServerRouter context={routerContext} url={request.url} />,
-      {
-        onShellReady() {
-          shellRendered = true;
-          const body = new PassThrough();
-          const stream = createReadableStreamFromReadable(body);
+  if (isbot(request.headers.get("user-agent") || "")) {
+    await stream.allReady;
+  }
 
-          responseHeaders.set("Content-Type", "text/html");
+  responseHeaders.set("Content-Type", "text/html; charset=utf-8");
 
-          resolve(
-            new Response(stream, {
-              headers: responseHeaders,
-              status: responseStatusCode,
-            })
-          );
-
-          pipe(body);
-        },
-        onShellError(error: unknown) {
-          reject(error);
-        },
-        onError(error: unknown) {
-          responseStatusCode = 500;
-          if (shellRendered) {
-            console.error(error);
-          }
-        },
-      }
-    );
-
-    setTimeout(abort, 5000);
+  return new Response(stream, {
+    status: responseStatusCode,
+    headers: responseHeaders,
   });
 }
