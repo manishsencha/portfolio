@@ -1,10 +1,8 @@
 import type { Config } from "@react-router/dev/config";
 
 export default {
-  // Use SSG by pre-rendering routes at build time
-  appDirectory: "src",
-  async prerender() {
-    return ["/", "/not-found"];
+  ssr: true,
+  future: {
+    v8_viteEnvironmentApi: true,
   },
-  ssr: true, // Required for pre-rendering
 } satisfies Config;

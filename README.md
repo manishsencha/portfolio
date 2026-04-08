@@ -1,46 +1,79 @@
-# Manish Sencha — Full-Stack Engineer
+# Welcome to React Router!
 
-Portfolio of Manish Sencha, a Full-stack Software Engineer building scalable web applications, GenAI systems, and cloud infrastructure.
+A modern, production-ready template for building full-stack React applications using React Router.
 
-## 🚀 Tech Stack
+## Features
 
-- **Frontend**: React, TypeScript, Tailwind CSS, Framer Motion
-- **UI Components**: shadcn/ui (Radix UI)
-- **Icons**: Lucide React
-- **Router**: React Router
-- **State Management**: TanStack Query
-- **Tooling**: Vite, ESLint
+- 🚀 Server-side rendering
+- ⚡️ Hot Module Replacement (HMR)
+- 📦 Asset bundling and optimization
+- 🔄 Data loading and mutations
+- 🔒 TypeScript by default
+- 🎉 TailwindCSS for styling
+- 📖 [React Router docs](https://reactrouter.com/)
 
-## 🛠️ Project Structure
+## Getting Started
 
-```text
-src/
-├── components/     # Reusable components
-│   ├── ui/        # Pruned shadcn/ui primitives
-│   └── ...        # Section components (Hero, About, etc.)
-├── hooks/          # Custom React hooks
-├── pages/          # Page components (Index, NotFound)
-├── lib/            # Utility functions
-└── App.tsx         # Main application entry
+### Installation
+
+Install the dependencies:
+
+```bash
+npm install
 ```
 
-## 🏃 Local Development
+### Development
 
-1. **Install Dependencies**:
-   ```bash
-   npm install
-   ```
+Start the development server with HMR:
 
-2. **Start Dev Server**:
-   ```bash
-   npm run dev
-   ```
+```bash
+npm run dev
+```
 
-3. **Build for Production**:
-   ```bash
-   npm run build
-   ```
+Your application will be available at `http://localhost:5173`.
 
-## 📝 License
+## Previewing the Production Build
 
-© 2024 Manish Sencha. All rights reserved.
+Preview the production build locally:
+
+```bash
+npm run preview
+```
+
+## Building for Production
+
+Create a production build:
+
+```bash
+npm run build
+```
+
+## Deployment
+
+Deployment is done using the Wrangler CLI.
+
+To build and deploy directly to production:
+
+```sh
+npm run deploy
+```
+
+To deploy a preview URL:
+
+```sh
+npx wrangler versions upload
+```
+
+You can then promote a version to production after verification or roll it out progressively.
+
+```sh
+npx wrangler versions deploy
+```
+
+## Styling
+
+This template comes with [Tailwind CSS](https://tailwindcss.com/) already configured for a simple default starting experience. You can use whatever CSS framework you prefer.
+
+---
+
+Built with ❤️ using React Router.
