@@ -13,6 +13,9 @@ export default defineConfig({
     resolve: {
       alias: {
         '@': '/src',
+        ...(import.meta.env.PROD && {
+          "react-dom/server": "react-dom/server.edge",
+        }),
       },
     },
   },
