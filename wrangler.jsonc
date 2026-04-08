@@ -16,6 +16,13 @@
 	"upload_source_maps": true,
 	"compatibility_flags": [
 		"nodejs_compat"
+	],
+	"routes": [
+		{
+			"pattern": "manishsencha.dev",
+			"zone_name": "manishsencha.dev",
+			"custom_domain": true
+		}
 	]
 	/**
 	 * Smart Placement
