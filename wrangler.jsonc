@@ -6,14 +6,17 @@
 	"$schema": "node_modules/wrangler/config-schema.json",
 	"name": "portfolio",
 	"compatibility_date": "2025-04-04",
-	"main": "./workers/app.ts",
+	"main": "./dist/_worker.js/index.js",
+	"assets": {
+		"directory": "./dist",
+		"binding": "ASSETS"
+	},
 	"vars": {
 		"VALUE_FROM_CLOUDFLARE": "Hello from Cloudflare"
 	},
 	"observability": {
 		"enabled": true
 	},
-	"upload_source_maps": true,
 	"compatibility_flags": [
 		"nodejs_compat"
 	],
