@@ -1,5 +1,5 @@
 import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react-swc";
+import { reactRouter } from "@react-router/dev/vite";
 import tailwindcss from "@tailwindcss/vite";
 import path from "path";
 
@@ -12,7 +12,7 @@ export default defineConfig({
       overlay: false,
     },
   },
-  plugins: [react(), tailwindcss()],
+  plugins: [reactRouter(), tailwindcss()],
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
@@ -28,7 +28,10 @@ export default defineConfig({
               id.includes("react-dom") ||
               id.includes("scheduler") ||
               id.includes("react-router") ||
-              id.includes("tanstack")
+              id.includes("tanstack") ||
+              id.includes("lucide-react") ||
+              id.includes("sonner") ||
+              id.includes("next-themes")
             ) {
               return "core-vendor";
             }
