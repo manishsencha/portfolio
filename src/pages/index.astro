@@ -1,0 +1,25 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import Navbar from '@/components/Navbar';
+import HeroSection from '@/components/HeroSection';
+import AboutSection from '@/components/AboutSection';
+import SkillsSection from '@/components/SkillsSection';
+import ExperienceSection from '@/components/ExperienceSection';
+import ProjectsSection from '@/components/ProjectsSection';
+import ContactSection from '@/components/ContactSection';
+---
+
+<Layout title="Manish Sencha | Full Stack Developer">
+	<div class="min-h-screen bg-background">
+		<Navbar client:load />
+		<HeroSection client:load />
+		<AboutSection client:visible />
+		<SkillsSection client:visible />
+		<ExperienceSection client:visible />
+		<ProjectsSection client:visible />
+		<ContactSection client:visible />
+		<footer class="py-8 text-center text-muted-foreground text-xs font-display border-t border-border">
+			© {new Date().getFullYear()} Manish Sencha. All rights reserved.
+		</footer>
+	</div>
+</Layout>
