@@ -1,59 +1,47 @@
-# Welcome to Next.js Portfolio!
+# OpenNext Starter
 
-A modern, production-ready portfolio built with Next.js, React, Tailwind CSS 4, and Framer Motion.
-
-## Features
-
-- 🚀 Server-side rendering (App Router)
-- ⚡️ Hot Module Replacement (HMR)
-- 📦 Asset bundling and optimization
-- 🔄 Server Components & Actions
-- 🔒 TypeScript by default
-- 🎉 TailwindCSS 4 for styling
-- 📖 [Next.js docs](https://nextjs.org/docs)
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
 
-### Installation
+Read the documentation at https://opennext.js.org/cloudflare.
 
-Install the dependencies:
+## Develop
 
-```bash
-npm install
-```
-
-### Development
-
-Start the development server:
+Run the Next.js development server:
 
 ```bash
 npm run dev
+# or similar package manager command
 ```
 
-Your application will be available at `http://localhost:3000`.
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-## Building for Production
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-Create a production build:
+## Preview
+
+Preview the application locally on the Cloudflare runtime:
 
 ```bash
-npm run build
+npm run preview
+# or similar package manager command
 ```
 
-## Deployment
+## Deploy
 
-This project is configured for deployment on Cloudflare Pages using `@cloudflare/next-on-pages`.
-
-To build and deploy:
+Deploy the application to Cloudflare:
 
 ```bash
 npm run deploy
+# or similar package manager command
 ```
 
-## Styling
+## Learn More
 
-This project uses [Tailwind CSS 4](https://tailwindcss.com/) for a modern styling experience.
+To learn more about Next.js, take a look at the following resources:
 
----
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-Built with ❤️ using Next.js.
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!

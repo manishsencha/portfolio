@@ -1,22 +1,33 @@
+/**
+ * For more details on how to configure Wrangler, refer to:
+ * https://developers.cloudflare.com/workers/wrangler/configuration/
+ */
+/**
+ * For more details on how to configure Wrangler, refer to:
+ * https://developers.cloudflare.com/workers/wrangler/configuration/
+ */
 {
 	"$schema": "node_modules/wrangler/config-schema.json",
 	"name": "portfolio",
-	"compatibility_date": "2025-04-04",
-	"pages_build_output_dir": ".vercel/output",
-	"main": ".vercel/output/static/_worker.js/index.js",
+	"main": ".open-next/worker.js",
+	"compatibility_date": "2025-04-09",
 	"compatibility_flags": [
-		"nodejs_compat"
+		"nodejs_compat",
+		"global_fetch_strictly_public"
 	],
+	"assets": {
+		"binding": "ASSETS",
+		"directory": ".open-next/assets"
+	},
+	"images": {
+		// Enable image optimization
+		// see https://opennext.js.org/cloudflare/howtos/image
+		"binding": "IMAGES"
+	},
 	"observability": {
 		"enabled": true
 	},
-	"routes": [
-		{
-			"pattern": "manishsencha.dev",
-			"zone_name": "manishsencha.dev",
-			"custom_domain": true
-		}
-	]
+	"upload_source_maps": true
 	/**
 	 * Smart Placement
 	 * https://developers.cloudflare.com/workers/configuration/smart-placement/#smart-placement
@@ -29,10 +40,12 @@
 	 * https://developers.cloudflare.com/workers/runtime-apis/bindings/
 	 */
 	/**
-	 * Static Assets
-	 * https://developers.cloudflare.com/workers/static-assets/binding/
+	 * Environment Variables
+	 * https://developers.cloudflare.com/workers/wrangler/configuration/#environment-variables
+	 * Note: Use secrets to store sensitive data.
+	 * https://developers.cloudflare.com/workers/configuration/secrets/
 	 */
-	// "assets": {  "directory": "./public/",  "binding": "ASSETS" }
+	// "vars": {  "MY_VARIABLE": "production_value" }
 	/**
 	 * Service Bindings (communicate between multiple Workers)
 	 * https://developers.cloudflare.com/workers/wrangler/configuration/#service-bindings
