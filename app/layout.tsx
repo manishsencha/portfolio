@@ -3,9 +3,9 @@ import { Providers } from "@/components/Providers";
 import "@/styles/global.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://manishsencha.dev"),
-  title: "Portfolio | Manish Sencha",
-  description: "Full Stack Developer Portfolio",
+    metadataBase: new URL("https://manishsencha.dev"),
+    title: "Portfolio | Manish Sencha",
+    description: "Full Stack Developer Portfolio",
     openGraph: {
         title: "Portfolio | Manish Sencha",
         description: "Full Stack Developer Portfolio",
@@ -15,20 +15,20 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({
-  children,
+    children,
 }: Readonly<{
-  children: React.ReactNode;
+    children: React.ReactNode;
 }>) {
-  return (
-    <html lang="en" suppressHydrationWarning>
-      <head>
+    return (
+        <html lang="en" suppressHydrationWarning>
+        <head>
         <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
-      </head>
-      <body>
+        </head>
+        <body>
         <Providers>
-          {children}
+        {children}
         </Providers>
-      </body>
-    </html>
-  );
+        </body>
+        </html>
+    );
 }
