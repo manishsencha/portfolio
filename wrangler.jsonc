@@ -2,6 +2,7 @@
 	"$schema": "node_modules/wrangler/config-schema.json",
 	"name": "portfolio",
 	"compatibility_date": "2025-04-04",
+	"pages_build_output_dir": ".vercel/output",
 	"main": ".vercel/output/static/_worker.js/index.js",
 	"compatibility_flags": [
 		"nodejs_compat"

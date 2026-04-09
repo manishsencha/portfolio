@@ -6,9 +6,10 @@
     "dev": "next dev",
     "start": "next dev",
     "build": "next build",
+    "pages:build": "next-on-pages",
+    "deploy": "npm run build && npm run pages:build && wrangler pages deploy .vercel/output",
     "preview": "next start",
     "cf-typegen": "wrangler types",
-    "deploy": "next build && npx @cloudflare/next-on-pages",
     "typecheck": "tsc -b"
   },
   "dependencies": {
