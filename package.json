@@ -8,7 +8,7 @@
     "build": "next build",
     "preview": "next start",
     "cf-typegen": "wrangler types",
-    "deploy": "next build && npx @cloudflare/next-on-pages -o dist",
+    "deploy": "next build && npx @cloudflare/next-on-pages",
     "typecheck": "tsc -b"
   },
   "dependencies": {

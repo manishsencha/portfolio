@@ -2,17 +2,10 @@
 	"$schema": "node_modules/wrangler/config-schema.json",
 	"name": "portfolio",
 	"compatibility_date": "2025-04-04",
-	"main": "dist/_worker.js/index.js",
-	"assets": {
-		"directory": "dist",
-		"binding": "ASSETS"
-	},
+	"main": ".vercel/output/static/_worker.js/index.js",
 	"compatibility_flags": [
 		"nodejs_compat"
 	],
-	"vars": {
-		"VALUE_FROM_CLOUDFLARE": "Hello from Cloudflare"
-	},
 	"observability": {
 		"enabled": true
 	},
