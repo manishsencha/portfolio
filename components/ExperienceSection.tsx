@@ -11,9 +11,6 @@ const experiences = [
       {
         name: "Zenith AI — AEO Platform",
         bullets: [
-          "Developing an AEO platform to help technical brands win citations and visibility in LLMs like ChatGPT, Claude, Gemini.",
-          "Architecting agentic workflows for Conversation-Driven Discovery; achieved 18.9% lift in citations and Share-of-Voice.",
-          "Building systems for LLM-Aware Writing and SOV tracking, driving a 40% increase in AI-driven traffic.",
         ],
         tech: ["Python", "Next.js", "LLMs", "Agentic Workflows"],
       },
