@@ -1,0 +1,15 @@
+{
+    "redirects": [
+        {
+            "source": "/(.*)",
+            "has": [
+                {
+                    "type": "host",
+                    "value": "www.manishsencha.dev"
+                }
+            ],
+            "destination": "https://manishsencha.dev/$1",
+            "permanent": true
+        }
+    ]
+}
