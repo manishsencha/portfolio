@@ -1,16 +1,16 @@
-# Welcome to React Router!
+# Welcome to Next.js Portfolio!
 
-A modern, production-ready template for building full-stack React applications using React Router.
+A modern, production-ready portfolio built with Next.js, React, Tailwind CSS 4, and Framer Motion.
 
 ## Features
 
-- 🚀 Server-side rendering
+- 🚀 Server-side rendering (App Router)
 - ⚡️ Hot Module Replacement (HMR)
 - 📦 Asset bundling and optimization
-- 🔄 Data loading and mutations
+- 🔄 Server Components & Actions
 - 🔒 TypeScript by default
-- 🎉 TailwindCSS for styling
-- 📖 [React Router docs](https://reactrouter.com/)
+- 🎉 TailwindCSS 4 for styling
+- 📖 [Next.js docs](https://nextjs.org/docs)
 
 ## Getting Started
 
@@ -24,21 +24,13 @@ npm install
 
 ### Development
 
-Start the development server with HMR:
+Start the development server:
 
 ```bash
 npm run dev
 ```
 
-Your application will be available at `http://localhost:5173`.
-
-## Previewing the Production Build
-
-Preview the production build locally:
-
-```bash
-npm run preview
-```
+Your application will be available at `http://localhost:3000`.
 
 ## Building for Production
 
@@ -50,30 +42,18 @@ npm run build
 
 ## Deployment
 
-Deployment is done using the Wrangler CLI.
+This project is configured for deployment on Cloudflare Pages using `@cloudflare/next-on-pages`.
 
-To build and deploy directly to production:
+To build and deploy:
 
-```sh
+```bash
 npm run deploy
-```
-
-To deploy a preview URL:
-
-```sh
-npx wrangler versions upload
-```
-
-You can then promote a version to production after verification or roll it out progressively.
-
-```sh
-npx wrangler versions deploy
 ```
 
 ## Styling
 
-This template comes with [Tailwind CSS](https://tailwindcss.com/) already configured for a simple default starting experience. You can use whatever CSS framework you prefer.
+This project uses [Tailwind CSS 4](https://tailwindcss.com/) for a modern styling experience.
 
 ---
 
-Built with ❤️ using React Router.
+Built with ❤️ using Next.js.
