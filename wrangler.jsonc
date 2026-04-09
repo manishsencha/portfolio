@@ -1,25 +1,16 @@
-/**
- * For more details on how to configure Wrangler, refer to:
- * https://developers.cloudflare.com/workers/wrangler/configuration/
- */
 {
 	"$schema": "node_modules/wrangler/config-schema.json",
 	"name": "portfolio",
 	"compatibility_date": "2025-04-04",
-	"main": "./dist/_worker.js/index.js",
-	"assets": {
-		"directory": "./dist",
-		"binding": "ASSETS"
-	},
+	"compatibility_flags": [
+		"nodejs_compat"
+	],
 	"vars": {
 		"VALUE_FROM_CLOUDFLARE": "Hello from Cloudflare"
 	},
 	"observability": {
 		"enabled": true
 	},
-	"compatibility_flags": [
-		"nodejs_compat"
-	],
 	"routes": [
 		{
 			"pattern": "manishsencha.dev",
