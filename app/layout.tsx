@@ -6,6 +6,12 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://manishsencha.dev"),
   title: "Portfolio | Manish Sencha",
   description: "Full Stack Developer Portfolio",
+    openGraph: {
+        title: "Portfolio | Manish Sencha",
+        description: "Full Stack Developer Portfolio",
+        url: "https://manishsencha.dev",
+        siteName: "Manish Sencha Portfolio",
+    }
 };
 
 export default function RootLayout({
