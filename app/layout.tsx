@@ -3,6 +3,7 @@ import { Providers } from "@/components/Providers";
 import "@/styles/global.css";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://manishsencha.dev"),
   title: "Portfolio | Manish Sencha",
   description: "Full Stack Developer Portfolio",
 };
