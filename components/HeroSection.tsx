@@ -1,7 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowDown, Github, Linkedin, Mail } from "lucide-react";
+import { ArrowDown, Mail } from "lucide-react";
+import { GitHubIcon, LinkedInIcon } from "@/components/BrandIcons";
 
 const HeroSection = () => {
   return (
@@ -42,11 +43,11 @@ const HeroSection = () => {
         >
           <a href="https://github.com/manishsencha" target="_blank" rel="noopener noreferrer"
             className="text-muted-foreground hover:text-primary transition-colors duration-300">
-            <Github size={22} />
+            <GitHubIcon size={22} />
           </a>
           <a href="https://linkedin.com/in/manish-sencha" target="_blank" rel="noopener noreferrer"
             className="text-muted-foreground hover:text-primary transition-colors duration-300">
-            <Linkedin size={22} />
+            <LinkedInIcon size={22} />
           </a>
           <a href="mailto:manishsencha2001@gmail.com"
             className="text-muted-foreground hover:text-primary transition-colors duration-300">

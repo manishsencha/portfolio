@@ -1,7 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Github, Linkedin, Mail } from "lucide-react";
+import { Mail } from "lucide-react";
+import { GitHubIcon, LinkedInIcon } from "@/components/BrandIcons";
 
 const ContactSection = () => {
   return (
@@ -34,7 +35,7 @@ const ContactSection = () => {
               rel="noopener noreferrer"
               className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors duration-300 font-display text-sm"
             >
-              <Github size={18} />
+              <GitHubIcon size={18} />
               <span>GitHub</span>
             </a>
             <a
@@ -43,7 +44,7 @@ const ContactSection = () => {
               rel="noopener noreferrer"
               className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors duration-300 font-display text-sm"
             >
-              <Linkedin size={18} />
+              <LinkedInIcon size={18} />
               <span>LinkedIn</span>
             </a>
           </div>
