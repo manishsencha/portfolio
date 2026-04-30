@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Providers } from "@/components/Providers";
 import "@/styles/global.css";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export const metadata: Metadata = {
     metadataBase: new URL("https://manishsencha.dev"),
@@ -28,6 +29,7 @@ export default function RootLayout({
         <Providers>
         {children}
         </Providers>
+        <SpeedInsights/>
         </body>
         </html>
     );
