@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { Providers } from "@/components/Providers";
-import "@/styles/global.css";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Analytics } from '@vercel/analytics/next'
+import "@/styles/global.css";
 
 export const metadata: Metadata = {
     metadataBase: new URL("https://manishsencha.dev"),
@@ -22,15 +23,16 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en" suppressHydrationWarning>
-        <head>
-        <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
-        </head>
-        <body>
-        <Providers>
-        {children}
-        </Providers>
-        <SpeedInsights/>
-        </body>
+            <head>
+                <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+            </head>
+            <body>
+                <Providers>
+                    {children}
+                </Providers>
+                <SpeedInsights />
+                <Analytics />
+            </body>
         </html>
     );
 }
