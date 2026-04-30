@@ -5,13 +5,13 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export const metadata: Metadata = {
     metadataBase: new URL("https://manishsencha.dev"),
-    title: "Portfolio | Manish Sencha",
-    description: "Full Stack Developer Portfolio",
+    title: "Manish Sencha",
+    description: "Full Stack Developer",
     openGraph: {
-        title: "Portfolio | Manish Sencha",
-        description: "Full Stack Developer Portfolio",
+        title: "Manish Sencha",
+        description: "Full Stack Developer",
         url: "https://manishsencha.dev",
-        siteName: "Manish Sencha Portfolio",
+        siteName: "Manish Sencha",
     }
 };
 
