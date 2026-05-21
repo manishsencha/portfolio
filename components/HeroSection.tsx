@@ -26,6 +26,7 @@ const HeroSection = () => {
           </p>
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold font-display tracking-tight mb-6">
             <span className="text-foreground">Manish</span>
+            <span> </span>
             <span className="text-gradient">Sencha</span>
           </h1>
           <p className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto leading-relaxed font-light mb-8">
