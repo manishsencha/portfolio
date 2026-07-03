@@ -17,7 +17,7 @@ const AboutSection = () => {
             About
           </h2>
           <p className="text-muted-foreground text-lg leading-relaxed max-w-3xl mb-8">
-            Full-stack Software Engineer with 2.5+ years of experience building scalable web applications,
+            Full-stack Software Engineer with 3+ years of experience building scalable web applications,
             GenAI systems, and cloud infrastructure. Built a RAG-based financial analyst from scratch and
             led an AWS cost optimization that cut infrastructure spend by 80%. Currently designing agentic
             AI workflows for content automation.
