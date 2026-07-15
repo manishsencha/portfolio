@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { Providers } from "@/components/Providers";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import { Analytics } from '@vercel/analytics/next'
+import { Analytics } from '@vercel/analytics/next';
+import { Toaster } from "sonner";
 import "@/styles/global.css";
 
 export const metadata: Metadata = {
@@ -30,6 +31,7 @@ export default function RootLayout({
                 <Providers>
                     {children}
                 </Providers>
+                <Toaster position="bottom-right" />
                 <SpeedInsights />
                 <Analytics />
             </body>
