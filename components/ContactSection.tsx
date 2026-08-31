@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Mail, Loader2, Send } from "lucide-react";
-import { GitHubIcon, LinkedInIcon } from "@/components/BrandIcons";
+import { GitHubIcon, LinkedInIcon, InstagramIcon } from "@/components/BrandIcons";
 import { toast } from "sonner";
 
 const ContactSection = () => {
@@ -91,7 +91,7 @@ const ContactSection = () => {
                 <span className="font-medium text-foreground">manishsencha2001@gmail.com</span>
               </a>
               <a
-                href="https://github.com/manishsencha"
+                href="https://gh.manishsencha.dev"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group flex items-center gap-4 text-muted-foreground hover:text-primary transition-all duration-300 w-fit"
@@ -99,10 +99,10 @@ const ContactSection = () => {
                 <div className="p-3 rounded-xl bg-secondary/50 group-hover:bg-primary/10 transition-colors">
                   <GitHubIcon size={20} className="group-hover:scale-110 transition-transform" />
                 </div>
-                <span className="font-medium text-foreground">github.com/manishsencha</span>
+                <span className="font-medium text-foreground">gh.manishsencha.dev</span>
               </a>
               <a
-                href="https://linkedin.com/in/manish-sencha"
+                href="https://li.manishsencha.dev"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group flex items-center gap-4 text-muted-foreground hover:text-primary transition-all duration-300 w-fit"
@@ -110,7 +110,18 @@ const ContactSection = () => {
                 <div className="p-3 rounded-xl bg-secondary/50 group-hover:bg-primary/10 transition-colors">
                   <LinkedInIcon size={20} className="group-hover:scale-110 transition-transform" />
                 </div>
-                <span className="font-medium text-foreground">linkedin.com/in/manish-sencha</span>
+                <span className="font-medium text-foreground">li.manishsencha.dev</span>
+              </a>
+              <a
+                href="https://ig.manishsencha.dev"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center gap-4 text-muted-foreground hover:text-primary transition-all duration-300 w-fit"
+              >
+                <div className="p-3 rounded-xl bg-secondary/50 group-hover:bg-primary/10 transition-colors">
+                  <InstagramIcon size={20} className="group-hover:scale-110 transition-transform" />
+                </div>
+                <span className="font-medium text-foreground">ig.manishsencha.dev</span>
               </a>
             </div>
           </motion.div>

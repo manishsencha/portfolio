@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { ArrowDown, Mail } from "lucide-react";
-import { GitHubIcon, LinkedInIcon } from "@/components/BrandIcons";
+import { GitHubIcon, LinkedInIcon, InstagramIcon } from "@/components/BrandIcons";
 
 const HeroSection = () => {
   return (
@@ -41,16 +41,24 @@ const HeroSection = () => {
           transition={{ delay: 0.5, duration: 0.6 }}
           className="flex items-center justify-center gap-5 mb-12"
         >
-          <a href="https://github.com/manishsencha" target="_blank" rel="noopener noreferrer"
-            className="text-muted-foreground hover:text-primary transition-colors duration-300">
+          <a href="https://gh.manishsencha.dev" target="_blank" rel="noopener noreferrer"
+            className="text-muted-foreground hover:text-primary transition-colors duration-300"
+            aria-label="GitHub">
             <GitHubIcon size={22} />
           </a>
-          <a href="https://linkedin.com/in/manish-sencha" target="_blank" rel="noopener noreferrer"
-            className="text-muted-foreground hover:text-primary transition-colors duration-300">
+          <a href="https://li.manishsencha.dev" target="_blank" rel="noopener noreferrer"
+            className="text-muted-foreground hover:text-primary transition-colors duration-300"
+            aria-label="LinkedIn">
             <LinkedInIcon size={22} />
           </a>
+          <a href="https://ig.manishsencha.dev" target="_blank" rel="noopener noreferrer"
+            className="text-muted-foreground hover:text-primary transition-colors duration-300"
+            aria-label="Instagram">
+            <InstagramIcon size={22} />
+          </a>
           <a href="mailto:manishsencha2001@gmail.com"
-            className="text-muted-foreground hover:text-primary transition-colors duration-300">
+            className="text-muted-foreground hover:text-primary transition-colors duration-300"
+            aria-label="Email">
             <Mail size={22} />
           </a>
         </motion.div>
