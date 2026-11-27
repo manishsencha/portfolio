@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
-      <main>
+      <main className="lg:pl-28">
         <HeroSection />
         <AboutSection />
         <SkillsSection />
@@ -18,7 +18,7 @@ export default function Home() {
         <ProjectsSection />
         <ContactSection />
       </main>
-      <footer className="py-8 text-center text-muted-foreground text-xs font-display border-t border-border">
+      <footer className="pb-32 pt-4 text-center text-xs text-muted-foreground lg:pl-28">
         © {new Date().getFullYear()} Manish Sencha. All rights reserved.
       </footer>
     </div>
