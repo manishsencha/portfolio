@@ -1,6 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { FolderGit2, Terminal, Users } from "lucide-react";
+import SectionHeading from "@/components/SectionHeading";
 
 const projects = [
   {
@@ -25,60 +27,61 @@ const activities = [
 
 const ProjectsSection = () => {
   return (
-    <section id="projects" className="py-24">
+    <section id="projects" className="py-20">
       <div className="section-container">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <h2 className="text-3xl md:text-4xl font-bold font-display text-gradient mb-12">
-            Projects & Activities
-          </h2>
-        </motion.div>
+        <SectionHeading eyebrow="Side quests" title="Projects & Activities" />
 
-        <div className="grid gap-6 mb-12">
-          {projects.map((proj, i) => (
+        <div className="grid gap-6 lg:grid-cols-5">
+          {projects.map((proj) => (
             <motion.div
-              key={i}
+              key={proj.name}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
-              className="bg-card border border-border rounded-lg p-6 hover:border-primary/30 transition-colors duration-300"
+              className="clay-ink flex flex-col rounded-[2rem] p-6 sm:p-7 lg:col-span-3"
             >
-              <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between mb-3">
-                <h3 className="font-display text-foreground font-semibold">{proj.name}</h3>
-                <span className="text-muted-foreground text-sm font-display">{proj.period}</span>
+              <div className="flex items-center justify-between gap-3">
+                <span className="clay-primary flex size-12 items-center justify-center rounded-2xl">
+                  <FolderGit2 size={22} />
+                </span>
+                <span className="rounded-full bg-white/10 px-3 py-1 text-xs font-semibold text-ink-foreground/80">
+                  {proj.period}
+                </span>
               </div>
-              <p className="text-muted-foreground text-sm leading-relaxed mb-4">{proj.description}</p>
-              <div className="flex flex-wrap gap-1.5">
+              <h3 className="mt-5 text-2xl font-bold">{proj.name}</h3>
+              <p className="mt-2 flex-1 leading-relaxed text-ink-foreground/70">{proj.description}</p>
+              <div className="mt-5 flex flex-wrap gap-1.5">
                 {proj.tech.map((t) => (
-                  <span key={t} className="text-xs bg-secondary text-primary px-2 py-0.5 rounded font-display">
+                  <span key={t} className="rounded-full bg-white/10 px-2.5 py-1 text-xs font-semibold text-[hsl(32_95%_65%)]">
                     {t}
                   </span>
                 ))}
               </div>
             </motion.div>
           ))}
-        </div>
 
-        <div className="grid gap-4 md:grid-cols-2">
-          {activities.map((act, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="bg-card border border-border rounded-lg p-5"
-            >
-              <h4 className="font-display text-sm text-primary font-medium mb-1">{act.title}</h4>
-              {act.period && <p className="text-muted-foreground text-xs font-display mb-2">{act.period}</p>}
-              <p className="text-muted-foreground text-sm">{act.description}</p>
-            </motion.div>
-          ))}
+          <div className="flex flex-col gap-6 lg:col-span-2">
+            {activities.map((act, i) => (
+              <motion.div
+                key={act.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.1 + i * 0.08 }}
+                className="clay flex flex-1 gap-4 rounded-[1.75rem] p-5 sm:p-6"
+              >
+                <span className="clay-sm flex size-12 shrink-0 items-center justify-center rounded-2xl text-primary">
+                  {i === 0 ? <Users size={22} /> : <Terminal size={22} />}
+                </span>
+                <div>
+                  <h4 className="font-bold">{act.title}</h4>
+                  {act.period && <p className="mt-0.5 text-xs font-semibold text-primary">{act.period}</p>}
+                  <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">{act.description}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

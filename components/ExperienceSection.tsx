@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import SectionHeading from "@/components/SectionHeading";
 
 const experiences = [
   {
@@ -75,64 +76,61 @@ const experiences = [
 
 const ExperienceSection = () => {
   return (
-    <section id="experience" className="py-24">
+    <section id="experience" className="py-20">
       <div className="section-container">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <h2 className="text-3xl md:text-4xl font-bold font-display text-gradient mb-12">
-            Experience
-          </h2>
-        </motion.div>
+        <SectionHeading eyebrow="Journey" title="Experience" />
 
-        <div className="space-y-12">
+        <div className="space-y-6">
           {experiences.map((exp, i) => (
             <motion.div
-              key={i}
+              key={exp.company}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="relative"
+              transition={{ duration: 0.5, delay: i * 0.08 }}
+              className="clay rounded-[2rem] p-5 sm:p-7"
             >
-              <div className="flex flex-col md:flex-row md:items-baseline md:justify-between mb-4">
-                <div>
-                  <h3 className="text-xl font-display font-semibold text-foreground">
-                    {exp.role}
-                  </h3>
-                  <p className="text-primary font-display text-sm">{exp.company}</p>
+              <div className="mb-5 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                <div className="flex items-center gap-4">
+                  <span
+                    className={`${i === 0 ? "clay-primary" : "clay-ink"} flex size-14 shrink-0 items-center justify-center rounded-2xl text-xl font-extrabold`}
+                  >
+                    {exp.company[0]}
+                  </span>
+                  <div>
+                    <h3 className="text-lg font-bold leading-tight sm:text-xl">{exp.role}</h3>
+                    <p className="text-sm font-semibold text-primary">{exp.company}</p>
+                  </div>
                 </div>
-                <span className="text-muted-foreground text-sm font-display mt-1 md:mt-0">
+                <span className="clay-inset w-fit rounded-full px-3.5 py-1.5 text-xs font-semibold text-muted-foreground">
                   {exp.period}
                 </span>
               </div>
 
-              <div className="space-y-6 ml-0 md:ml-4 border-l border-border pl-6">
-                {exp.projects.map((proj, j) => (
-                  <div key={j}>
-                    <h4 className="font-display text-sm text-foreground font-medium mb-2">
-                      {proj.name}
-                    </h4>
-                    <ul className="space-y-1.5 mb-3">
-                      {proj.bullets.map((b, k) => (
-                        <li key={k} className="text-muted-foreground text-sm leading-relaxed">
-                          <span className="text-primary mr-2">▸</span>{b}
-                        </li>
-                      ))}
-                    </ul>
-                    <div className="flex flex-wrap gap-1.5">
+              <ul className="space-y-3">
+                {exp.projects.map((proj) => (
+                  <li key={proj.name} className="clay-inset rounded-[1.25rem] p-4 sm:p-5">
+                    <h4 className="font-semibold">{proj.name}</h4>
+                    {proj.bullets.length > 0 && (
+                      <ul className="mt-2 space-y-1.5">
+                        {proj.bullets.map((b) => (
+                          <li key={b} className="flex gap-2.5 text-sm leading-relaxed text-muted-foreground">
+                            <span className="mt-2 size-1.5 shrink-0 rounded-full bg-primary" />
+                            {b}
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                    <div className="mt-3 flex flex-wrap gap-1.5">
                       {proj.tech.map((t) => (
-                        <span key={t} className="text-xs bg-secondary text-primary px-2 py-0.5 rounded font-display">
+                        <span key={t} className="clay-sm rounded-full px-2.5 py-1 text-xs font-semibold text-primary">
                           {t}
                         </span>
                       ))}
                     </div>
-                  </div>
+                  </li>
                 ))}
-              </div>
+              </ul>
             </motion.div>
           ))}
         </div>

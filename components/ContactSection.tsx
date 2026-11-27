@@ -2,8 +2,9 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, Loader2, Send } from "lucide-react";
-import { GitHubIcon, LinkedInIcon, InstagramIcon } from "@/components/BrandIcons";
+import { Loader2, Send } from "lucide-react";
+import { socials } from "@/lib/site";
+import SectionHeading from "@/components/SectionHeading";
 import { toast } from "sonner";
 
 const ContactSection = () => {
@@ -44,156 +45,90 @@ const ContactSection = () => {
     }
   };
 
+  const inputClass =
+    "clay-inset w-full rounded-2xl px-4 py-3 outline-none transition-shadow placeholder:text-muted-foreground/60 focus:ring-2 focus:ring-primary/40";
+
   return (
-    <section id="contact" className="py-24 relative overflow-hidden">
-      {/* Background decoration */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-3xl h-[400px] bg-primary/5 blur-[120px] rounded-full pointer-events-none" />
-      
-      <div className="section-container relative z-10 max-w-5xl">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-3xl md:text-5xl font-bold font-display text-gradient mb-6">
-            Let's Connect
-          </h2>
-          <p className="text-muted-foreground max-w-xl mx-auto text-lg">
-            Interested in working together or just want to chat about tech? Fill out the form below or reach out through my socials.
-          </p>
-        </motion.div>
+    <section id="contact" className="py-20">
+      <div className="section-container">
+        <SectionHeading eyebrow="Contact" title="Let's connect" />
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-start">
+        <div className="grid items-stretch gap-6 lg:grid-cols-5">
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="flex flex-col space-y-8"
+            transition={{ duration: 0.5 }}
+            className="clay-ink flex min-w-0 flex-col rounded-[2rem] p-6 sm:p-8 lg:col-span-2"
           >
-            <div>
-              <h3 className="text-2xl font-bold font-display mb-4">Get in Touch</h3>
-              <p className="text-muted-foreground leading-relaxed mb-8">
-                I'm currently open for new opportunities. Whether you have a question or just want to say hi, I'll try my best to get back to you!
-              </p>
-            </div>
-            
-            <div className="flex flex-col space-y-6">
-              <a
-                href="mailto:manishsencha2001@gmail.com"
-                className="group flex items-center gap-4 text-muted-foreground hover:text-primary transition-all duration-300 w-fit"
-              >
-                <div className="p-3 rounded-xl bg-secondary/50 group-hover:bg-primary/10 transition-colors">
-                  <Mail size={20} className="group-hover:scale-110 transition-transform" />
-                </div>
-                <span className="font-medium text-foreground">manishsencha2001@gmail.com</span>
-              </a>
-              <a
-                href="https://gh.manishsencha.dev"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group flex items-center gap-4 text-muted-foreground hover:text-primary transition-all duration-300 w-fit"
-              >
-                <div className="p-3 rounded-xl bg-secondary/50 group-hover:bg-primary/10 transition-colors">
-                  <GitHubIcon size={20} className="group-hover:scale-110 transition-transform" />
-                </div>
-                <span className="font-medium text-foreground">gh.manishsencha.dev</span>
-              </a>
-              <a
-                href="https://li.manishsencha.dev"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group flex items-center gap-4 text-muted-foreground hover:text-primary transition-all duration-300 w-fit"
-              >
-                <div className="p-3 rounded-xl bg-secondary/50 group-hover:bg-primary/10 transition-colors">
-                  <LinkedInIcon size={20} className="group-hover:scale-110 transition-transform" />
-                </div>
-                <span className="font-medium text-foreground">li.manishsencha.dev</span>
-              </a>
-              <a
-                href="https://ig.manishsencha.dev"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group flex items-center gap-4 text-muted-foreground hover:text-primary transition-all duration-300 w-fit"
-              >
-                <div className="p-3 rounded-xl bg-secondary/50 group-hover:bg-primary/10 transition-colors">
-                  <InstagramIcon size={20} className="group-hover:scale-110 transition-transform" />
-                </div>
-                <span className="font-medium text-foreground">ig.manishsencha.dev</span>
-              </a>
-            </div>
+            <h3 className="text-2xl font-bold">Get in touch</h3>
+            <p className="mt-2 leading-relaxed text-ink-foreground/70">
+              I&apos;m open to new opportunities. Whether you have a question or just want to say hi, I&apos;ll get back to you.
+            </p>
+            <ul className="mt-6 space-y-3">
+              {socials.map(({ label, href, display, Icon }) => (
+                <li key={label}>
+                  <a
+                    href={href}
+                    target={href.startsWith("http") ? "_blank" : undefined}
+                    rel="noopener noreferrer"
+                    className="group flex items-center gap-4 rounded-2xl p-1.5 transition-colors hover:bg-white/5"
+                  >
+                    <span className="flex size-11 shrink-0 items-center justify-center rounded-xl bg-white/10 text-[hsl(32_95%_62%)] transition-transform group-hover:scale-105">
+                      <Icon size={20} />
+                    </span>
+                    <span className="min-w-0">
+                      <span className="block text-xs text-ink-foreground/60">{label}</span>
+                      <span className="block truncate font-medium">{display}</span>
+                    </span>
+                  </a>
+                </li>
+              ))}
+            </ul>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
+          <motion.form
+            onSubmit={handleSubmit}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.4 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="clay flex min-w-0 flex-col gap-5 rounded-[2rem] p-6 sm:p-8 lg:col-span-3"
           >
-            <form onSubmit={handleSubmit} className="flex flex-col space-y-6 bg-secondary/30 p-8 rounded-3xl backdrop-blur-sm border border-secondary/50 shadow-xl">
+            <div className="grid gap-5 sm:grid-cols-2">
               <div className="space-y-2">
-                <label htmlFor="name" className="text-sm font-medium text-foreground/80">Name</label>
-                <input
-                  id="name"
-                  name="name"
-                  type="text"
-                  required
-                  value={formData.name}
-                  onChange={handleChange}
-                  placeholder="John Doe"
-                  className="w-full bg-background border border-border rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all placeholder:text-muted-foreground/50"
-                />
+                <label htmlFor="name" className="px-1 text-sm font-semibold text-foreground/80">Name</label>
+                <input id="name" name="name" type="text" required value={formData.name} onChange={handleChange} placeholder="John Doe" className={inputClass} />
               </div>
-              
               <div className="space-y-2">
-                <label htmlFor="email" className="text-sm font-medium text-foreground/80">Email</label>
-                <input
-                  id="email"
-                  name="email"
-                  type="email"
-                  required
-                  value={formData.email}
-                  onChange={handleChange}
-                  placeholder="john@example.com"
-                  className="w-full bg-background border border-border rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all placeholder:text-muted-foreground/50"
-                />
+                <label htmlFor="email" className="px-1 text-sm font-semibold text-foreground/80">Email</label>
+                <input id="email" name="email" type="email" required value={formData.email} onChange={handleChange} placeholder="john@example.com" className={inputClass} />
               </div>
+            </div>
 
-              <div className="space-y-2">
-                <label htmlFor="message" className="text-sm font-medium text-foreground/80">Message</label>
-                <textarea
-                  id="message"
-                  name="message"
-                  required
-                  rows={4}
-                  value={formData.message}
-                  onChange={handleChange}
-                  placeholder="Your message here..."
-                  className="w-full bg-background border border-border rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all placeholder:text-muted-foreground/50 resize-none"
-                />
-              </div>
+            <div className="flex flex-1 flex-col space-y-2">
+              <label htmlFor="message" className="px-1 text-sm font-semibold text-foreground/80">Message</label>
+              <textarea id="message" name="message" required rows={5} value={formData.message} onChange={handleChange} placeholder="Your message here..." className={`${inputClass} flex-1 resize-none`} />
+            </div>
 
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className="w-full bg-primary text-primary-foreground font-medium py-3.5 px-4 rounded-xl flex items-center justify-center gap-2 hover:bg-primary/90 transition-all active:scale-[0.98] disabled:opacity-70 disabled:pointer-events-none mt-2 shadow-lg shadow-primary/20"
-              >
-                {isSubmitting ? (
-                  <>
-                    <Loader2 size={18} className="animate-spin" />
-                    <span>Sending...</span>
-                  </>
-                ) : (
-                  <>
-                    <span>Send Message</span>
-                    <Send size={18} />
-                  </>
-                )}
-              </button>
-            </form>
-          </motion.div>
+            <button
+              type="submit"
+              disabled={isSubmitting}
+              className="clay-primary clay-press flex items-center justify-center gap-2 rounded-2xl px-4 py-3.5 font-semibold disabled:pointer-events-none disabled:opacity-70"
+            >
+              {isSubmitting ? (
+                <>
+                  <Loader2 size={18} className="animate-spin" />
+                  <span>Sending...</span>
+                </>
+              ) : (
+                <>
+                  <span>Send Message</span>
+                  <Send size={18} />
+                </>
+              )}
+            </button>
+          </motion.form>
         </div>
       </div>
     </section>

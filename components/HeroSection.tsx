@@ -1,77 +1,76 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowDown, Mail } from "lucide-react";
-import { GitHubIcon, LinkedInIcon, InstagramIcon } from "@/components/BrandIcons";
+import EngineerPass from "@/components/hero/EngineerPass";
+import StatusCard from "@/components/hero/StatusCard";
+import MapCard from "@/components/hero/MapCard";
+import FeaturedWork from "@/components/hero/FeaturedWork";
+import Diorama from "@/components/hero/Diorama";
+
+const rise = (delay: number) => ({
+  initial: { opacity: 0, y: 24 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.6, delay, ease: [0.22, 1, 0.36, 1] as const },
+});
+
+function NowBuilding() {
+  return (
+    <div className="clay relative overflow-hidden rounded-[1.5rem] p-5 sm:max-w-[17rem]">
+      <h3 className="font-bold">Now Building</h3>
+      <p className="mt-1.5 text-sm font-semibold text-primary">Zenith AI · AEO</p>
+      <p className="mt-1.5 pr-14 text-sm leading-relaxed text-muted-foreground">
+        Agentic workflows that track how brands show up in LLM answers.
+      </p>
+      <svg viewBox="0 0 80 60" className="absolute bottom-0 right-0 w-20" aria-hidden>
+        <circle cx="56" cy="16" r="8" fill="hsl(32 95% 70%)" />
+        <path d="M0 60 Q20 36 44 46 T80 40 V60Z" fill="hsl(22 68% 62%)" />
+        <path d="M20 60 Q50 44 80 52 V60Z" fill="hsl(16 58% 46%)" />
+      </svg>
+    </div>
+  );
+}
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background grid */}
-      <div className="absolute inset-0 opacity-[0.03]"
-        style={{
-          backgroundImage: `linear-gradient(hsl(var(--primary)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--primary)) 1px, transparent 1px)`,
-          backgroundSize: '60px 60px'
-        }}
-      />
-      
-      <div className="section-container relative z-10 text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-        >
-          <p className="font-display text-primary text-sm tracking-[0.3em] uppercase mb-4">
-            Full-Stack Engineer
-          </p>
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold font-display tracking-tight mb-6">
-            <span className="text-foreground">Manish</span>
-            <span> </span>
-            <span className="text-gradient">Sencha</span>
-          </h1>
-          <p className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto leading-relaxed font-light mb-8">
-            Building scalable web applications, GenAI systems, and cloud infrastructure.
-            Passionate about clean architecture and shipping end-to-end products.
-          </p>
-        </motion.div>
+    <section id="top" className="pt-8 sm:pt-12">
+      <div className="section-container grid gap-6 lg:grid-cols-12 lg:gap-7">
+        {/* Left column */}
+        <div className="flex min-w-0 flex-col gap-6 lg:col-span-7 lg:gap-7">
+          <motion.div {...rise(0)} className="px-1">
+            <h1 className="text-4xl font-extrabold sm:text-5xl">
+              Hello, I&apos;m Manish <span className="inline-block origin-[70%_70%] animate-[wave_2.4s_ease-in-out_1]">👋</span>
+            </h1>
+            <p className="mt-3 max-w-xl text-lg text-muted-foreground">
+              I build scalable web apps, GenAI systems and cloud infrastructure, and ship them end to end.
+            </p>
+          </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.5, duration: 0.6 }}
-          className="flex items-center justify-center gap-5 mb-12"
-        >
-          <a href="https://gh.manishsencha.dev" target="_blank" rel="noopener noreferrer"
-            className="text-muted-foreground hover:text-primary transition-colors duration-300"
-            aria-label="GitHub">
-            <GitHubIcon size={22} />
-          </a>
-          <a href="https://li.manishsencha.dev" target="_blank" rel="noopener noreferrer"
-            className="text-muted-foreground hover:text-primary transition-colors duration-300"
-            aria-label="LinkedIn">
-            <LinkedInIcon size={22} />
-          </a>
-          <a href="https://ig.manishsencha.dev" target="_blank" rel="noopener noreferrer"
-            className="text-muted-foreground hover:text-primary transition-colors duration-300"
-            aria-label="Instagram">
-            <InstagramIcon size={22} />
-          </a>
-          <a href="mailto:manishsencha2001@gmail.com"
-            className="text-muted-foreground hover:text-primary transition-colors duration-300"
-            aria-label="Email">
-            <Mail size={22} />
-          </a>
-        </motion.div>
+          <motion.div {...rise(0.1)}>
+            <EngineerPass />
+          </motion.div>
 
-        <motion.a
-          href="#about"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.8 }}
-          className="inline-flex items-center text-muted-foreground hover:text-primary transition-colors"
-        >
-          <ArrowDown size={20} className="animate-bounce" />
-        </motion.a>
+          <motion.div {...rise(0.2)} className="relative">
+            <div className="animate-float">
+              <Diorama />
+            </div>
+            <div className="mt-4 sm:absolute sm:bottom-0 sm:right-0 sm:mt-0">
+              <NowBuilding />
+            </div>
+          </motion.div>
+        </div>
+
+        {/* Right column */}
+        <div className="flex min-w-0 flex-col gap-6 lg:col-span-5 lg:gap-7">
+          <motion.div {...rise(0.15)}>
+            <StatusCard />
+          </motion.div>
+          <motion.div {...rise(0.25)}>
+            <MapCard />
+          </motion.div>
+          <motion.div {...rise(0.35)}>
+            <FeaturedWork />
+          </motion.div>
+        </div>
       </div>
     </section>
   );
